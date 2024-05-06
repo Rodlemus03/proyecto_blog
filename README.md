@@ -5,10 +5,11 @@
 
 - Segundo paso [Clonar el repositorio de frontend](https://github.com/Rodlemus03/proyecto_blog.git)
 
-- Tercer paso [Levantar el backend y luego el frontend](1. docker compose up --build 2. https://github.com/Rodlemus03/proyecto_blog.git)
+- Tercer paso [Levantar el backend y luego el frontend](1. docker compose up --build 2. npm run dev)
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
+ lem22461@uvg.edu.gt
 </p>
 
 <h3 align="left">Languages and Tools:</h3>
