@@ -12,7 +12,7 @@ import Plantilla from "./pages/Plantilla";
 const App = () => {
   const router = createBrowserRouter([
     {
-      path: "/posts/",
+      path: "/login/",
       element: <Plantilla/>,
       children: [
         { index: true, element: <Login /> },
