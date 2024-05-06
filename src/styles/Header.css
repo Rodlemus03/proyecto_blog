@@ -1,0 +1,13 @@
+.header-container {
+    background-color: #f0f0f0; /* Color de fondo */
+    padding: 20px; /* Espaciado interno */
+    text-align: center; /* Centrar texto */
+    border-bottom: 2px solid #ccc; /* Agregar una barra inferior */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+  }
+  
+  h1 {
+    margin: 0; /* Eliminar margen superior del título */
+    color: #333; /* Color del texto */
+  }
+  

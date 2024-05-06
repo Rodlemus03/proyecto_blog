@@ -1,10 +1,11 @@
+import React from 'react';
+import '../styles/Footer.css'; // Importamos el archivo de estilos CSS
 
 function Footer() {
-    return (
-      <footer>
-        <h2>Holis</h2>
-      </footer>
-    );
-  }
-  
-  export default Footer;
+  return (
+    <>
+    </>
+  );
+}
+
+export default Footer;

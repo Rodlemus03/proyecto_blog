@@ -20,9 +20,11 @@ const LoginForm = () => {
       });
 
       if (!response.ok) {
+        localStorage.setItem("auth",false);
         throw new Error('Credenciales incorrectas');
       }else{
-        navigate('/posts/dashboard');
+        localStorage.setItem("auth",true);
+        navigate('/login/dashboard');
       }
 
       // Si la respuesta es exitosa, puedes redirigir a la página principal o realizar otras acciones
