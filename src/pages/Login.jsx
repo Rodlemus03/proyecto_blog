@@ -11,7 +11,7 @@ const LoginForm = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://62.138.24.147/lab6/22461/api/authenticate', {
+      const response = await fetch('localhost:22461/api/authenticate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
