@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import PropTypes from 'prop-types'; // Importa PropTypes desde prop-types
 import "../styles/Modal.css";
 import axios from 'axios';
-
 
 const Modal = ({ showModal, handleCloseModal, editedBlog, handleChange, token }) => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -28,10 +28,10 @@ const Modal = ({ showModal, handleCloseModal, editedBlog, handleChange, token })
         "Content-Type": "application/json"
       }
     })
-      .then(response => {
+      .then(() => {
         // Si la respuesta es exitosa, cerrar el modal
         handleCloseModal();
-        console.log("Datos enviados correctamente al servidor");
+        window.location.reload();
       })
       .catch(error => {
         console.error("Error:", error);
@@ -49,16 +49,26 @@ const Modal = ({ showModal, handleCloseModal, editedBlog, handleChange, token })
         <div className="modal" onClick={(e) => e.stopPropagation()}>
           <span className="close" onClick={handleCloseModal}>&times;</span>
           <h2>Agregar Blog</h2>
-          <input type="text" name="title" placeholder="Título" value={editedBlog.title || ""} onChange={handleInputChange} />
+          <br />
+          <input class="modalCrear"  type="text" name="title" placeholder="Título" value={editedBlog.title || ""} onChange={handleInputChange} />
           <textarea name="content" placeholder="Contenido" value={editedBlog.content || ""} onChange={handleInputChange}></textarea>
-          <input type="text" name="plataforma" placeholder="Plataforma" value={editedBlog.plataforma || ""} onChange={handleInputChange} />
-          <input type="text" name="cancion" placeholder="Canción" value={editedBlog.cancion || ""} onChange={handleInputChange} />
+          <input class="modalCrear" type="text" name="plataforma" placeholder="Plataforma" value={editedBlog.plataforma || ""} onChange={handleInputChange} />
+          <input class="modalCrear" type="text" name="cancion" placeholder="Canción" value={editedBlog.cancion || ""} onChange={handleInputChange} />
           {errorMessage && <p className="error-message">{errorMessage}</p>}
           <button onClick={handleSaveChanges}>Guardar</button>
         </div>
       </div>
     )
   );
+};
+
+// Añade validación de PropTypes
+Modal.propTypes = {
+  showModal: PropTypes.bool.isRequired,
+  handleCloseModal: PropTypes.func.isRequired,
+  editedBlog: PropTypes.object.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  token: PropTypes.string.isRequired
 };
 
 export default Modal;

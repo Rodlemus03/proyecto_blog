@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { FaEdit, FaTrashAlt, FaPlus, FaSignOutAlt } from "react-icons/fa";
@@ -13,6 +13,8 @@ const Dashboard = () => {
   const [editedBlog, setEditedBlog] = useState({});
   const [showModal, setShowModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -55,7 +57,7 @@ const Dashboard = () => {
         Authorization: `Bearer ${token}`
       }
     })
-      .then(response => {
+      .then(() => {
         setBlogs(blogs.filter(blog => blog.id !== id));
       })
       .catch(error => {
@@ -85,7 +87,7 @@ const Dashboard = () => {
         Authorization: `Bearer ${token}`
       }
     })
-      .then(response => {
+      .then(() => {
         setBlogs(prevBlogs => prevBlogs.map(blog => (blog.id === selectedBlog.id ? { ...blog, ...editedBlog } : blog)));
         setShowEditModal(false);
         console.log("Cambios guardados exitosamente");
@@ -133,7 +135,7 @@ const Dashboard = () => {
         Authorization: `Bearer ${token}`
       }
     })
-      .then(response => {
+      .then(() => {
         // Si la respuesta es exitosa, cerrar el modal
         handleCloseModal();
         console.log("Datos enviados correctamente al servidor");
@@ -186,6 +188,7 @@ const Dashboard = () => {
           handleChange={handleChange}
           token={localStorage.getItem('token')}
           handleUpdateBlogs={handleUpdateBlogs}
+          errorMessage={errorMessage} // Agregamos el mensaje de error al modal
         />
         <ModalEdit
           showModal={showEditModal}
@@ -193,6 +196,7 @@ const Dashboard = () => {
           handleSaveChanges={handleEditSaveChanges}
           editedBlog={editedBlog}
           handleChange={handleChange}
+          errorMessage={errorMessage} // Agregamos el mensaje de error al modal de edición
         />
       </div>
     );

@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import errorImage from "../images/noauth.png"; // Importa la imagen
 

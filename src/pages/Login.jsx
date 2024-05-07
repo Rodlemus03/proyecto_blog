@@ -1,5 +1,5 @@
 // LoginForm.jsx
-import React, { useState } from "react";
+import { useState } from "react";
 import { TextField, Button, Container, Typography, Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
@@ -32,6 +32,11 @@ const LoginForm = () => {
     } catch (error) {
       setError(error.message);
     }
+  };
+
+  const handleRegister = async () => {
+        localStorage.setItem("auth",true);
+        navigate('/login/register');
   };
 
   return (
@@ -74,6 +79,15 @@ const LoginForm = () => {
             onClick={handleLogin}
           >
             Iniciar Sesión
+          </Button>
+          <Button
+            type="button"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+            onClick={handleRegister}
+          >
+            Registrarse
           </Button>
         </Box>
       </Box>

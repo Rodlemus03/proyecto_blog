@@ -1,5 +1,5 @@
-// ModalEdit.jsx
-import React, { useState } from "react";
+import { useState } from 'react';
+import PropTypes from 'prop-types'; // Importa PropTypes desde prop-types
 import "../styles/Modal.css";
 
 const ModalEdit = ({ showModal, handleCloseModal, editedBlog, handleChange, handleSaveChanges }) => {
@@ -37,6 +37,15 @@ const ModalEdit = ({ showModal, handleCloseModal, editedBlog, handleChange, hand
       </div>
     )
   );
+};
+
+// Añade validación de PropTypes
+ModalEdit.propTypes = {
+  showModal: PropTypes.bool.isRequired, // Valida que showModal sea un booleano requerido
+  handleCloseModal: PropTypes.func.isRequired, // Valida que handleCloseModal sea una función requerida
+  editedBlog: PropTypes.object.isRequired, // Valida que editedBlog sea un objeto requerido
+  handleChange: PropTypes.func.isRequired, // Valida que handleChange sea una función requerida
+  handleSaveChanges: PropTypes.func.isRequired // Valida que handleSaveChanges sea una función requerida
 };
 
 export default ModalEdit;

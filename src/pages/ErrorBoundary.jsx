@@ -1,5 +1,6 @@
-// ErrorBoundary.jsx
 import React from "react";
+import PropTypes from "prop-types"; // Importa PropTypes desde react
+
 import Error404 from "./pages/Error404";
 
 class ErrorBoundary extends React.Component {
@@ -10,6 +11,7 @@ class ErrorBoundary extends React.Component {
 
   static getDerivedStateFromError(error) {
     // Actualiza el estado para que el próximo renderizado muestre el Fallback UI.
+    console.log(error);
     return { hasError: true };
   }
 
@@ -27,5 +29,10 @@ class ErrorBoundary extends React.Component {
     return this.props.children;
   }
 }
+
+// Añade validación de PropTypes
+ErrorBoundary.propTypes = {
+  children: PropTypes.node.isRequired // Valida que children esté presente y sea un nodo React
+};
 
 export default ErrorBoundary;

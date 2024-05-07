@@ -1,4 +1,3 @@
-import React from 'react';
 import '../styles/Header.css'; // Importamos el archivo de estilos CSS
 
 function Header() {

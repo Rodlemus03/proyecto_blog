@@ -3,20 +3,21 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { ErrorBoundary } from "react-error-boundary";
 import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard";
-import ErrorFallback from "./pages/ErrorFallback";
 import Plantilla from "./pages/Plantilla";
-
+import Error404 from "./pages/Error404";
+import Register from "./pages/Register";
 const App = () => {
   const router = createBrowserRouter([
     {
       path: "/login/",
       element: <Plantilla/>,
+      errorElement:<Error404/>,
       children: [
         { index: true, element: <Login /> },
-        { path: 'dashboard', element: <Dashboard /> }
+        { path: 'dashboard', element: <Dashboard /> },
+        {path:'register',element:<Register/>}
       ]
     }
   ]);
