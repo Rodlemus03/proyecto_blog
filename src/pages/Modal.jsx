@@ -50,10 +50,10 @@ const Modal = ({ showModal, handleCloseModal, editedBlog, handleChange, token })
           <span className="close" onClick={handleCloseModal}>&times;</span>
           <h2>Agregar Blog</h2>
           <br />
-          <input class="modalCrear"  type="text" name="title" placeholder="Título" value={editedBlog.title || ""} onChange={handleInputChange} />
+          <input  type="text" name="title" placeholder="Título" value={editedBlog.title || ""} onChange={handleInputChange} />
           <textarea name="content" placeholder="Contenido" value={editedBlog.content || ""} onChange={handleInputChange}></textarea>
-          <input class="modalCrear" type="text" name="plataforma" placeholder="Plataforma" value={editedBlog.plataforma || ""} onChange={handleInputChange} />
-          <input class="modalCrear" type="text" name="cancion" placeholder="Canción" value={editedBlog.cancion || ""} onChange={handleInputChange} />
+          <input  type="text" name="plataforma" placeholder="Plataforma" value={editedBlog.plataforma || ""} onChange={handleInputChange} />
+          <input  type="text" name="cancion" placeholder="Canción" value={editedBlog.cancion || ""} onChange={handleInputChange} />
           {errorMessage && <p className="error-message">{errorMessage}</p>}
           <button onClick={handleSaveChanges}>Guardar</button>
         </div>
