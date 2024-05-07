@@ -22,7 +22,7 @@ const Modal = ({ showModal, handleCloseModal, editedBlog, handleChange, token })
     };
 
     // Enviar los datos al API usando axios
-    axios.post("http://127.0.0.1:3000/api/posts", postData, {
+    axios.post("http://62.138.24.147/lab6/22461/api/posts", postData, {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json"

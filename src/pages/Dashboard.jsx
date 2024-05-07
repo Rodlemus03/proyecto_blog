@@ -20,7 +20,7 @@ const Dashboard = () => {
   useEffect(() => {
     const getTokenAndStore = async () => {
       try {
-        const response = await axios.post("http://127.0.0.1:3000/api/get-token", { userId: 'usuario_id' });
+        const response = await axios.post("http://62.138.24.147/lab6/22461/api/get-token", { userId: 'usuario_id' });
         const token = response.data.token;
         localStorage.setItem("token", token);
       } catch (error) {
@@ -37,7 +37,7 @@ const Dashboard = () => {
 
   const fetchBlogs = () => {
     const token = localStorage.getItem('token');
-    axios.get("http://127.0.0.1:3000/api/posts", {
+    axios.get("http://62.138.24.147/lab6/22461/api/posts", {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -52,7 +52,7 @@ const Dashboard = () => {
 
   const handleDelete = (id) => {
     const token = localStorage.getItem('token');
-    axios.delete(`http://127.0.0.1:3000/api/posts/${id}`, {
+    axios.delete(`http://62.138.24.147/lab6/22461/api/posts/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -82,7 +82,7 @@ const Dashboard = () => {
 
   const handleEditSaveChanges = () => {
     const token = localStorage.getItem('token');
-    axios.put(`http://127.0.0.1:3000/api/posts/${selectedBlog.id}`, editedBlog, {
+    axios.put(`http://62.138.24.147/lab6/22461/api/posts/${selectedBlog.id}`, editedBlog, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -130,7 +130,7 @@ const Dashboard = () => {
   
     // Enviar los datos al API usando axios
     const token = localStorage.getItem('token');
-    axios.post("http://127.0.0.1:3000/api/posts", postData, {
+    axios.post("http://62.138.24.147/lab6/22461/api/posts", postData, {
       headers: {
         Authorization: `Bearer ${token}`
       }
