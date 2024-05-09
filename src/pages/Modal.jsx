@@ -22,7 +22,7 @@ const Modal = ({ showModal, handleCloseModal, editedBlog, handleChange, token })
     };
 
     // Enviar los datos al API usando axios
-    axios.post("localhost:22461/api/posts", postData, {
+    axios.post("http://22461.arpanetos.lol/api/posts", postData, {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json"

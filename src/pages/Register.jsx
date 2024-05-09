@@ -28,7 +28,7 @@ const Register = () => {
       };
 
       try {
-        const response = await fetch("localhost:22461/api/users", {
+        const response = await fetch("http://22461.arpanetos.lol/api/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"

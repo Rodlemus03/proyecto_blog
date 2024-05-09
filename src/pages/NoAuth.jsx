@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import errorImage from "../images/noauth.png"; // Importa la imagen
 
-const NoAuth = () => {
+const 
+NoAuth = () => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
